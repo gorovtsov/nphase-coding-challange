@@ -3,12 +3,22 @@ package com.nphase.entity;
 import java.math.BigDecimal;
 
 public class Product {
+    private static final String DEFAULT_CATEGORY_NAME = "default";
     private final String name;
+    private final String category;
     private final BigDecimal pricePerUnit;
     private final int quantity;
 
     public Product(String name, BigDecimal pricePerUnit, int quantity) {
         this.name = name;
+        this.pricePerUnit = pricePerUnit;
+        this.quantity = quantity;
+        this.category = DEFAULT_CATEGORY_NAME;
+    }
+
+    public Product(String name, BigDecimal pricePerUnit, int quantity, String category) {
+        this.name = name;
+        this.category = category;
         this.pricePerUnit = pricePerUnit;
         this.quantity = quantity;
     }
@@ -23,5 +33,9 @@ public class Product {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public String getCategory() {
+        return category;
     }
 }
